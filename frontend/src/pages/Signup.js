@@ -9,7 +9,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/signup", form);
+      await axios.post("https://task-manager-backend-lbqe.onrender.com/api/signup", form);
       navigate("/login");
     } catch (err) {
       alert("Signup failed");
