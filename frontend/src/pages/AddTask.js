@@ -15,7 +15,7 @@ export default function AddTask() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/projects/${projectId}/tasks`, {
+        const res = await axios.get(`https://task-manager-backend-lbqe.onrender.com/api/projects/${projectId}/tasks`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTasks(res.data);
@@ -35,7 +35,7 @@ export default function AddTask() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:5000/api/projects/${projectId}/tasks`, form, {
+      await axios.post(`https://task-manager-backend-lbqe.onrender.com/api/projects/${projectId}/tasks`, form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setForm({ title: "", description: "", status: "Pending" });
@@ -49,7 +49,7 @@ export default function AddTask() {
   const handleDelete = async (taskId) => {
     if (!window.confirm("Are you sure you want to delete this task?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${taskId}`, {
+      await axios.delete(`https://task-manager-backend-lbqe.onrender.com/api/tasks/${taskId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(tasks.filter(task => task._id !== taskId));
@@ -61,7 +61,7 @@ export default function AddTask() {
 
   const refreshTasks = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/projects/${projectId}/tasks`, {
+      const res = await axios.get(`https://task-manager-backend-lbqe.onrender.com/api/projects/${projectId}/tasks`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(res.data);
