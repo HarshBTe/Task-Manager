@@ -10,7 +10,7 @@ export default function AddProject() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/projects", { name }, {
+    await axios.post("https://task-manager-backend-lbqe.onrender.com/api/projects", { name }, {
       headers: { Authorization: `Bearer ${token}` },
     });
     navigate("/");
