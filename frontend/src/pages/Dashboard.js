@@ -9,7 +9,7 @@ export default function Dashboard() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/projects", {
+    axios.get("https://task-manager-backend-lbqe.onrender.com/api/projects", {
       headers: { Authorization: `Bearer ${token}` },
     }).then(res => setProjects(res.data));
   }, [token]);
