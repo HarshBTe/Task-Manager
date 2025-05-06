@@ -15,7 +15,7 @@ export function AuthProvider({ children }) {
   }, [user, token]);
 
   const login = async (email, password) => {
-    const res = await axios.post("http://localhost:5000/api/login", { email, password });
+    const res = await axios.post("https://task-manager-backend-lbqe.onrender.com/api/login", { email, password });
     setUser(res.data.user);
     setToken(res.data.token);
   };
