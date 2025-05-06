@@ -10,14 +10,14 @@ export default function UpdateTask() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/tasks/${taskId}`, {
+    axios.get(`https://task-manager-backend-lbqe.onrender.com/api/tasks/${taskId}`, {
       headers: { Authorization: `Bearer ${token}` },
     }).then(res => setForm(res.data));
   }, [taskId, token]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`http://localhost:5000/api/tasks/${taskId}`, form, {
+    await axios.put(`https://task-manager-backend-lbqe.onrender.com/api/tasks/${taskId}`, form, {
       headers: { Authorization: `Bearer ${token}` },
     });
     navigate("/");
